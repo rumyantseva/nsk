@@ -8,7 +8,7 @@ APP?=nsk
 PORT?=8080
 
 # Current version
-RELEASE?=0.0.1
+RELEASE?=0.0.2
 
 # Parameters to push images and release app to Kubernetes or try it with Docker
 REGISTRY?=docker.io/webdeva

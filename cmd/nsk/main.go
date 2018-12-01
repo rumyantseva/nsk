@@ -19,7 +19,8 @@ func main() {
 		Addr:    ":" + port,
 		Handler: nil,
 	}
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/readyz", readyz)
+	http.HandleFunc("/healthz", healthz)
 
 	err := s.ListenAndServe()
 	if err != nil {
@@ -32,6 +33,12 @@ func main() {
 	log.Print("Application has been stoped")
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func healthz(w http.ResponseWriter, r *http.Request) {
+	log.Printf("HEALTH: Request received...")
+	fmt.Fprint(w, http.StatusText(http.StatusOK))
+}
+
+func readyz(w http.ResponseWriter, r *http.Request) {
+	log.Printf("READYZ: Request received...")
 	fmt.Fprint(w, http.StatusText(http.StatusOK))
 }

@@ -40,11 +40,11 @@ spec:
         - containerPort: {{ .Values.service.externalPort }}
         livenessProbe:
           httpGet:
-            path: /
+            path: /healthz
             port: {{ .Values.service.internalPort }}
         readinessProbe:
           httpGet:
-            path: /
+            path: /readyz
             port: {{ .Values.service.internalPort }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
