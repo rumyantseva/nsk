@@ -4,12 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
 	log.Print("Starting application...")
 
-	port := "8080"
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		log.Fatal("Port is unset")
+	}
 
 	s := http.Server{
 		Addr:    ":" + port,
@@ -21,6 +25,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("Serever is stoped with error: %v", err)
 	}
+
+	///
+	//s.Shutdown
 
 	log.Print("Application has been stoped")
 }
