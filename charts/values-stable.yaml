@@ -36,7 +36,7 @@ image:
   ##
   registry: docker.io/webdeva
   name: nsk
-  tag: 0.0.2
+  tag: 0.0.3
 
   ## Docker Registry/Hub image pull policy
   ##
@@ -50,12 +50,6 @@ ingress:
   ## Prefix for API (Example: /api/v1/)
   ##
   prefix: /
-
-  ## Ingress annotations (e.g. `Let's encrypt` annotations to generating certs)
-  ##
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: $2
 
   ## Ingress path feature allow access to service through path 
   ## example: https://hostname/namespace/servicename
