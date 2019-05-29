@@ -4,7 +4,7 @@
 {{- $workflow := .Values.workflow -}}
 {{- $serviceName := .Values.service.name -}}
 {{- $servicePort := .Values.service.externalPort -}}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
